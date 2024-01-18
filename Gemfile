@@ -56,6 +56,10 @@ gem 'sassc-rails'
 gem 'bootstrap', '5.2.3'
 gem 'jquery-rails'
 
+# active storage
+gem 'aws-sdk-s3', require: false
+gem 'dotenv-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
