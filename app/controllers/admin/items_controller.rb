@@ -5,5 +5,8 @@ module Admin
     def index
       @items = Item.all
     end
+
+    def new
+    end
   end
 end
