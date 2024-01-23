@@ -1,6 +1,12 @@
 <!-- Section-->
 <section class="py-5">
   <div class="container">
+    <% if notice %>
+      <div class="alert alert-success" role="alert">
+        <%= notice %>
+      </div>
+    <% end %>
+    <p style="color: green"><%= notice %></p>
     <table class="table table-hover">
       <thead class="table-dark">
         <tr>
@@ -21,6 +27,6 @@
         <% end %>
       </tbody>
     </table>
-    <%= button_to "Add new Item", new_admin_item_path, method: :get, class: "btn btn-dark"%>
+    <%= button_to "Add New Item", new_admin_item_path, method: :get, class: "btn btn-dark"%>
   </div>
 </section>
