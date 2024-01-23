@@ -7,6 +7,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @items = Item.order(created_at: :desc).limit(4)
+    @items = Item.where.not(id: @item.id).order(created_at: :desc).limit(4)
   end
 end
