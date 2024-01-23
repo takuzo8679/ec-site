@@ -24,6 +24,10 @@
         <%= f.text_area :description, required: true, class: "form-control"  %>
       </div>
       <div class="mb-3">
+        <%= f.label :image, class: "form-label" %>
+        <%= f.file_field :image, required: true, accept: 'image/*', onchange: 'previewFileWithId(preview)', class: "form-control"  %>
+      </div>
+      <div class="mb-3">
         <%= f.submit "Add New Item", class: "btn btn-dark"%>
       </div>
     <% end %>

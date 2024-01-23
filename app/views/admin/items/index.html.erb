@@ -14,6 +14,7 @@
           <th scope="col">name</th>
           <th scope="col">price</th>
           <th scope="col">description</th>
+          <th scope="col" width="5%">image</th>
         </tr>
       </thead>
       <tbody>
@@ -23,6 +24,7 @@
             <td><%= item.name %></td>
             <td><%= item.price %></td>
             <td><%= item.description %></td>
+            <td><%= image_tag(item.image, class: "img-fluid mb-5 mb-md-0") %></td>
           </tr>
         <% end %>
       </tbody>
