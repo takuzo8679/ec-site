@@ -2,14 +2,15 @@
 
 # == Schema Information
 #
-# Table name: tasks
+# Table name: items
 #
 #  id          :bigint           not null, primary key
-#  description :text
-#  status      :integer
-#  title       :string
+#  description :text             not null
+#  name        :string           not null
+#  price       :decimal(7, 2)    not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-class Task < ApplicationRecord
+class Item < ApplicationRecord
+  has_one_attached :image
 end
