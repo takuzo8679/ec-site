@@ -1,12 +1,6 @@
 <!-- Section-->
 <section class="py-5">
   <div class="container">
-    <% if notice %>
-      <div class="alert alert-success" role="alert">
-        <%= notice %>
-      </div>
-    <% end %>
-    <p style="color: green"><%= notice %></p>
     <table class="table table-hover">
       <thead class="table-dark">
         <tr>
@@ -15,6 +9,7 @@
           <th scope="col">price</th>
           <th scope="col">description</th>
           <th scope="col" width="5%">image</th>
+          <th scope="col" width="5%"></th>
         </tr>
       </thead>
       <tbody>
@@ -25,6 +20,11 @@
             <td><%= item.price %></td>
             <td><%= item.description %></td>
             <td><%= image_tag(item.image, class: "img-fluid mb-5 mb-md-0") %></td>
+            <td>
+              <%= button_to admin_item_path(item), { method: :delete, data: { turbo_confirm: "Delete this?" }, class: "btn btn-light" } do %>
+                <i class="bi bi-trash"></i>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

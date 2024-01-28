@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :items, only: %i[index show]
 
   namespace :admin do
-    resources :items, only: %i[index new create]
+    resources :items, only: %i[index new create destroy]
   end
 end

@@ -23,6 +23,19 @@ module Admin
       end
     end
 
+    def destroy
+      item = Item.find(params[:id])
+      respond_to do |format|
+        if item.destroy!
+          format.html do
+            redirect_to admin_items_path, notice: "Id: #{item.id}(name: #{item.name}) is successfully deleteted"
+          end
+        else
+          format.html { render :index, status: :unprocessable_entity }
+        end
+      end
+    end
+
     private
 
     def item_params
