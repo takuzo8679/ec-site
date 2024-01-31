@@ -28,7 +28,7 @@ module Admin
 
     def destroy
       respond_to do |format|
-        if @item.destroy!
+        if @item.destroy
           format.html do
             redirect_to admin_items_path, notice: "Id: #{@item.id}(name: #{@item.name}) is successfully deleteted"
           end
@@ -42,7 +42,7 @@ module Admin
 
     def update
       respond_to do |format|
-        if @item.update!(item_params)
+        if @item.update(item_params)
           format.html do
             redirect_to admin_items_path, notice: "Id: #{@item.id}(name: #{@item.name}) is successfully updated"
           end
