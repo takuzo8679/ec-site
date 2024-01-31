@@ -13,8 +13,10 @@
 #
 class Item < ApplicationRecord
   has_one_attached :image
-  validates :name, { presence: true }
-  validates :price, { presence: true }
-  validates :description, { presence: true }
-  validates :image, { presence: true }
+  with_options presence: true do
+    validates :name
+    validates :price
+    validates :description
+    validates :image
+  end
 end
