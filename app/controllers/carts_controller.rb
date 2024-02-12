@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CartsController < ApplicationController
-  before_action :set_item_id, only: %i[create]
+  before_action :set_item_id, only: %i[create destroy]
   before_action :set_quantity, only: %i[create]
 
   def index
@@ -10,6 +10,11 @@ class CartsController < ApplicationController
 
   def create
     @cart.add_item(@item_id, @quantity)
+    redirect_to carts_path
+  end
+
+  def destroy
+    @cart.cart_items.find(@item_id).destroy
     redirect_to carts_path
   end
 

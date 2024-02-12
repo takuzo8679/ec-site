@@ -5,4 +5,7 @@
     <small class="text-body-secondary">qty: <%= cart_item.quantity %></small>
   </div>
   <span class="text-body-secondary">$<%= cart_item.total_price %></span>
+  <%= button_to cart_path(cart_item.id), { method: :delete, class: "btn btn-outline-dark flex-shrink-0" } do %>
+    <i class="bi bi-trash"></i>
+  <% end %>
 </li>
