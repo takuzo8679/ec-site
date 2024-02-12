@@ -4,7 +4,9 @@ class CartsController < ApplicationController
   before_action :set_item_id, only: %i[create]
   before_action :set_quantity, only: %i[create]
 
-  def index; end
+  def index
+    @cart_items = @cart.cart_items
+  end
 
   def create
     @cart.add_item(@item_id, @quantity)

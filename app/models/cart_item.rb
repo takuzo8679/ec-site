@@ -28,4 +28,8 @@ class CartItem < ApplicationRecord
   with_options presence: true do
     validates :quantity
   end
+
+  def total_price
+    item.price * quantity
+  end
 end

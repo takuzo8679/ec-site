@@ -21,4 +21,8 @@ class Cart < ApplicationRecord
     Rails.logger.debug cart_items
     cart_items.sum(:quantity)
   end
+
+  def total_price
+    cart_items.inject(0) { |sum, cart_item| sum + cart_item.total_price }
+  end
 end
