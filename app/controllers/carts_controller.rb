@@ -9,13 +9,23 @@ class CartsController < ApplicationController
   end
 
   def create
-    @cart.add_item(@item_id, @quantity)
-    redirect_to carts_path
+    respond_to do |format|
+      if @cart.add_item(@item_id, @quantity)
+        format.html { redirect_to carts_path }
+      else
+        format.html { render :index, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
-    @cart.cart_items.find(@item_id).destroy
-    redirect_to carts_path
+    respond_to do |format|
+      if @cart.cart_items.find(@item_id).destroy
+        format.html { redirect_to carts_path }
+      else
+        format.html { render :index, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
