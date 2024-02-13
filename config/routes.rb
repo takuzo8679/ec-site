@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items, only: %i[index show]
 
+  resources :carts, only: %i[index create update destroy]
+
   namespace :admin do
     resources :items, only: %i[index new create destroy edit update]
   end
